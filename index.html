@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trivia Game</title>
+	<!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Open+Sans+Condensed:300,700" rel="stylesheet">
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">	
+
+</head>
+<body>
+	<div class="container text-center">
+		<div class="row">
+			<h1 class="col-md-12">Trivia Game</h1>
+		</div>
+		<div class="row final">
+			<h2 class="col-md-12 score"></h2>
+			<button class="btn btn-primary reset">Reset</button>
+		</div>
+		<div class="row">
+			<h2 class="col-md-12">Time Remaining: <span class="time"></span> seconds
+		</div>
+		<div class="row">
+			<h3 class="col-md-12 results"></h3>
+		</div>
+		<div class="row">
+			<h2 class="col-md-12 question"></h2>
+			<h3 class="col-md-12 answers"></h3>
+		</div>
+	</div>
+	<script src="assets/javascript/game.js"></script>
+</body>
+</html>

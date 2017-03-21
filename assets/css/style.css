@@ -1,0 +1,27 @@
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1, h2, h3 {
+	font-family: 'Amatic SC', cursive;
+	font-weight: 700;
+}
+
+.final {
+	display: none;
+}
+
+.container {
+	background: white;
+	height:500px;
+	margin-top: 15%;
+	border-radius: 50px;
+}
+
+html {
+	height:100%;
+}
+body {
+	background: #FFEEFF;
+	background-repeat: no-repeat;
+	height:100%;
