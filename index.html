@@ -19,20 +19,40 @@
 		<div class="row">
 			<h1 class="col-md-12">Trivia Game</h1>
 		</div>
-		<div class="row final">
-			<h2 class="col-md-12 score"></h2>
-			<button class="btn btn-primary reset">Reset</button>
-		</div>
-		<div class="row">
-			<h2 class="col-md-12">Time Remaining: <span class="time"></span> seconds
-		</div>
-		<div class="row">
-			<h3 class="col-md-12 results"></h3>
-		</div>
-		<div class="row">
-			<h2 class="col-md-12 question"></h2>
-			<h3 class="col-md-12 answers"></h3>
-		</div>
+		
+		<section class="col-md-12 startGame">
+			<button class="btn btn-lg btn-primary start">Start</button>
+		</section>		
+		
+		<section class="col-md-12 gameState">
+			<div class="row">
+				<h2 class="col-md-12">Time Remaining: <span class="time">15</span> seconds
+			</div>
+			<div class="row">
+				<h2 class="col-md-12 question"></h2>
+				<h3 class="col-md-12">
+					<ul class="answers">
+					</ul>
+				</h3>
+			</div>
+		</section>
+
+		<section class="col-md-12 response">
+			<h1 class="correct"></h1>
+			<h2 class="correctAnswer"></h2>
+	<!-- 		<img src="#"> -->
+		</section>
+
+		<section class="col-md-12 final">
+			<div class="row">
+				<h2 class="col-md-12 correct"></h2>
+				<h2 class="col-md-12 incorrect"></h2>
+				<h2 class="col-md-12 unanswered"></h2>
+				<div class="row final">
+					<button class="btn btn-lg btn-primary reset">Reset</button>
+				</div>				
+			</div>		
+		</section>
 	</div>
 	<script src="assets/javascript/app.js"></script>
 </body>

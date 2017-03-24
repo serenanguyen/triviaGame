@@ -18,6 +18,24 @@ h1, h2, h3 {
 	border-radius: 50px;
 }
 
+.gameState {
+	display:none;
+}
+
+.answers {
+	list-style: none;
+}
+
+.response {
+	display:none;
+}
+
+li:hover {
+    /* glow effect on hover */
+    text-shadow: -1px 1px 20px #ffc, 1px -1px 20px #0000FF;
+    transition: text-shadow 250ms linear 0s;
+}
+
 html {
 	height:100%;
 }
@@ -25,3 +43,5 @@ body {
 	background: #FFEEFF;
 	background-repeat: no-repeat;
 	height:100%;
+
+
