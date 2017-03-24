@@ -1,10 +1,12 @@
 body {
 	font-family: 'Open Sans Condensed', sans-serif;
+
 }
 
 h1, h2, h3 {
 	font-family: 'Amatic SC', cursive;
 	font-weight: 700;
+	font-size: 300%;
 }
 
 .final {
@@ -12,7 +14,7 @@ h1, h2, h3 {
 }
 
 .container {
-	background: white;
+	background-color: rgba(255, 238, 255, .8);
 	height:500px;
 	margin-top: 15%;
 	border-radius: 50px;
@@ -36,12 +38,17 @@ li:hover {
     transition: text-shadow 250ms linear 0s;
 }
 
+.btn{
+	font-size:250%;
+}
+
 html {
 	height:100%;
 }
 body {
-	background: #FFEEFF;
+	background-image: url("../images/bg.png");
+	background-color: white;
 	background-repeat: no-repeat;
-	height:100%;
+	background-size: 100% 100%;
 
 

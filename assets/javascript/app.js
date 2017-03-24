@@ -2,43 +2,53 @@ $(document).ready(function(){
 	var questions = [
 		{question: "What is the biggest species of shark?",
 			correctAnswer: "Whale shark",
-			answers: ["Whale shark",  "Great white shark", "Hammerhead shark", "Basking shark"]},
-
+			answers: ["Basking shark",  "Great white shark", "Hammerhead shark", "Whale shark"],
+			image: "assets/images/whale.gif"
+		},
 		{question: "What is the name for a baby horse?",
 			correctAnswer: "Foal",
-			answers: ["Foal", "Calf", "Cub", "Cygnet"]
+			answers: ["Cub", "Calf", "Foal", "Cygnet"],
+			image: "assets/images/foal.gif"
 		},
 		{question: "A seahorse is a(n) _____.",
-				correctAnswer: "Fish",
-				answers: ["Fish", "Crustacean", "Mammal", "Arachnid"]
+			correctAnswer: "Fish",
+			answers: ["Crustacean", "Fish", "Mammal", "Arachnid"],
+			image: "assets/images/seahorse.gif"
 		},
 		{question: "Which of these birds has the largest wingspan?",
 			correctAnswer: "Albatross",
-			answers: ["Albatross", "Stork", "Swan", "Condor"]
+			answers: ["Albatross", "Stork", "Swan", "Condor"],
+			image: "assets/images/albatross.gif"
 		},
 		{question: "What is the biggest animal that has ever lived?",
 			correctAnswer: "Blue whale",
-			answers: ["Blue whale", "African elephant", "Brontosaurus", "Spinosaurus"]
+			answers: ["Spinosaurus", "African elephant", "Brontosaurus", "Blue whale"],
+			image: "assets/images/bluewhale.gif"
 		},
 		{question: "Which is the fastest flying bird?",
 			correctAnswer: "Peregrine falcon",
-			answers: ["Peregrine falcon", "Harpy eagle", "Grey-headed albatross", "Common swift"]
+			answers: ["Peregrine falcon", "Harpy eagle", "Grey-headed albatross", "Common swift"],
+			image: "assets/images/peregrine.gif"
 		},	
 		{question: "What are female elephants called?",
 			correctAnswer: "Cows",
-			answers: ["Cows", "Mares", "Sows", "Dames"]
+			answers: ["Mares", "Cows", "Sows", "Dames"],
+			image: "assets/images/elephant.gif"
 		},
 		{question: "What is the fastest water animal?",
 			correctAnswer: "Sailfish",
-			answers: ["Sailfish", "Porpoise", "Marlin", "Barracuda"]
+			answers: ["Sailfish", "Porpoise", "Marlin", "Barracuda"],
+			image: "assets/images/sailfish.gif"
 		},
 		{question: "What is a group of frogs called?",
 			correctAnswer: "Army",
-			answers: ["Army", "Herd", "Flock", "Troop"]
+			answers: ["Troop", "Herd", "Flock", "Army"],
+			image: "assets/images/frogs.gif"
 		},	
 		{question: "Which of these mammals lays eggs?",
 			correctAnswer: "Echidna",
-			answers: ["Echidna", "Bongo", "Kiwi", "Southern right whale"]
+			answers: ["Echidna", "Bongo", "Kiwi", "Southern right whale"],
+			image: "assets/images/echidna.gif"
 		}				
 	];
 	// var correct = 0;
@@ -51,7 +61,7 @@ $(document).ready(function(){
 	var questionUnanswered = true;
 
 	function run() {
-		intervalId = setInterval(decrement,300);
+		intervalId = setInterval(decrement,1000);
 	};
 	function decrement() {
 		number--;
@@ -62,13 +72,13 @@ $(document).ready(function(){
 			$(".answers").html("");
 			displayQuestion();
 		} 
-		if(count === 9) {
+		if(count > 9) {
 			clearInterval(intervalId);
 			$(".gameState").css("display", "none");
 			$(".final").css("display", "inline");	
 		$(".correct").html("correct: " + score.correct);
 		$(".incorrect").html("incorrect: " + score.incorrect);
-		$(".unanswered").html("unanswered " + score.unanswered);	
+		$(".unanswered").html("unanswered " + (10-score.click));	
 		}
 
 	};
@@ -85,11 +95,6 @@ $(document).ready(function(){
 
 	};
 
-
-	// for(i = 0; i < questions.length; i++) {
-	// 	console.log(questions[i].question);
-	// 	console.log(questions[i].answers);
-	// };
 	function displayQuestion(){
 			$(".question").html(questions[count].question);
 		for(i=0; i<4 ; i++) {
@@ -103,13 +108,15 @@ $(document).ready(function(){
 	var score = {
 		correct: 0,
 		incorrect: 0,
-		unanswered: 0,
-		questionUnanswered: true
+		// unanswered: (10 - click),
+		click:0
+		
 	}
 
 	function displayCorrect(){
 		$(".correct").text("Correct!");
 		$(".correctAnswer").text("The answer was: "+questions[count].correctAnswer);
+		$(".img").attr("src", questions[count].image);
 		$(".response").css("display", "inline");
 		$(".gameState").css("display", "none");
 	}
@@ -117,6 +124,7 @@ $(document).ready(function(){
 	function displayIncorrect(){
 		$(".correct").text("Incorrect!");
 		$(".correctAnswer").text("The correct answer was: "+questions[count].correctAnswer);
+		$(".img").attr("src", questions[count].image);
 		$(".response").css("display", "inline");
 		$(".gameState").css("display", "none");
 	}	
@@ -144,29 +152,23 @@ $(document).ready(function(){
 		$(".reset").on("click",reset);
 
 		$(document).on("click", "li", function(){
+			score.click++;
 			console.log(this);
 			clearInterval(intervalId);
-			questionUnanswered = false;
 			if(this.className === "correct"){
 				console.log("bingo");
 				score.correct++;
 				displayCorrect();
 				setTimeout(next,1000);
-			} else {
+			} else if(this.className !== "correct") {
 				console.log("no");
 				score.incorrect++;
 				displayIncorrect();
 				setTimeout(next,1000);
 			};
-			// count++;
-			// $(".answers").html("");
-			// displayQuestion();	
+	
 		});
-		for (i=0; i<count.length; i++){
-			if(questionUnanswered){
-				unanswered++;
-			}
-		}		
+	//unanswered count number of clicks subtracted from number of questions??
 	});
 	
 });
